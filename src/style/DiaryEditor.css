@@ -1,0 +1,4 @@
+.DiaryEditor {
+    display: flex;
+    flex-direction: column;
+}
