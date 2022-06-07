@@ -1,8 +1,7 @@
 import React, {useRef, useState} from 'react';
 import '../style/DiaryEditor.css';
 
-const DiaryEditor = () => {
-
+const DiaryEditor = ({onCreate}) => {
 
     let [state, setState] = useState({
         author: '',
@@ -31,7 +30,14 @@ const DiaryEditor = () => {
             return;
         }
 
+        onCreate(state.author, state.content, state.emotion);
         alert('저장 성공입니다.');
+        setState({
+            author: "",
+            content: "",
+            emotion:5,
+        })
+
     }
 
     return (
