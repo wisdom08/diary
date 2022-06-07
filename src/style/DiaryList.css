@@ -1,0 +1,9 @@
+.DiaryList {
+    border: 1px solid grey;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+}
