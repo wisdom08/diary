@@ -3,6 +3,14 @@ import '../style/DiaryItem.css'
 
 const DiaryItem = ({id, author, content, emotion, created_date, onDelete}) => {
 
+    const handleDelete = () => {
+        if (window.confirm(`${id+1}번째 일기를 정말 삭제하시겠습니까?`)) {
+            onDelete(id);
+        }
+    }
+
+
+
     return (
         <div className="DiaryItem">
             <div className="info"
@@ -12,13 +20,9 @@ const DiaryItem = ({id, author, content, emotion, created_date, onDelete}) => {
                 <span className="date"> 작성시간: {new Date(created_date).toLocaleString()}</span>
             </div>
             <div className="content">{content}</div>
-            <button onClick={() => {
-                if (window.confirm(`${id}번째 일기를 정말 삭제하시겠습니까?`)) {
-                    onDelete(id);
-                }
-
-            }}>삭제
+            <button onClick={handleDelete}>삭제
             </button>
+            <button>수정</button>
         </div>
     )
 };
