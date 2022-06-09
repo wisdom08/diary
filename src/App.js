@@ -31,10 +31,16 @@ function App() {
         setData(newItem);
     }
 
+    const onUpdate = (targetId, newContent) => {
+        setData(
+            data.map((v) => v.id === targetId ? {...v, content: newContent} : v )
+        )
+    }
+
     return (
         <div className="App">
             <DiaryEditor onCreate={onCreate}/>
-            <DiaryList diaryList={data} onDelete={onDelete}/>
+            <DiaryList diaryList={data} onDelete={onDelete} onUpdate={onUpdate}/>
         </div>
     );
 }
